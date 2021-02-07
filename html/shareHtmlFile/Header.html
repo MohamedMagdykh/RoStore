@@ -1,0 +1,152 @@
+
+
+<head>
+    <link href="css/header-footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+</head>
+<div class="backgroundloader text-center" style="display: none;">
+<div class="loader">Loading...</div>
+</div>
+
+    <div class="bottom-bar" style="background: #20b7ff;">
+        <div class="container-fluid" id="containernav">
+            <div class="row align-items-center">
+                <div class="col-md-2" id="logoedite">
+                    <div class="logo" >
+                        <a href="index.html">
+                            <h1 style=" filter: drop-shadow(2px 4px 6px white); color: white;font-size: 45px;" class="MQROSTORE">RoStore</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-5 tabs"  >
+                    <div class="nav">
+                        <div class="container-fluid tabsMQ" style="padding-left: 18%;">
+                            <nav class="navbar navbar-expand-md bg-light navbar-dark">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                    
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="padding-left: 10%;">
+                                    <div class="navbar-nav mr-auto">
+                                        <a href="index.html" class="nav-item nav-link MQnav-item" style="font-size: 1.3vw;">Home</a>
+                                        <a href="product-list.html" class="nav-item nav-link MQnav-item products-nav-link" style="font-size: 1.3vw;margin-left: 7%;
+                                        margin-right: 7%;">Products</a>
+                                        <!-- <a href="cart.html" class="nav-item nav-link">Cart</a>
+                                        <a href="checkout.html" class="nav-item nav-link">Checkout</a> -->
+                                        <a href="contact.html" style="font-size: 1.3vw; white-space: nowrap" class="nav-item nav-link MQnav-item ">Contact Us</a>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-5" style="padding-left: 8%;"  id="cartheart" style="display: none;">
+                    <div class="row" >
+                    <div class="user">
+                        <a href="wishlist.html" class="btn wishlist" id="wishlistCart">
+                            <i class="fa fa-heart"></i>
+                            <span id="numberWishList">(0)</span>
+                        </a>
+                        <a href="cart.html" class="btn cart" id="buyCart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span id="buyCartNumber" >(0)</span>
+                        </a>
+                    </div>
+                    <!-- <span style="font-size: 1.5vw;
+                    color: white;
+                    margin-left: 6%;">mohmed magdy</span> -->
+                    <div class="nav-item dropdown">
+                        <a href="#" style="font-size: 20px;color:white; " id= "showName"class="nav-link showName dropdown-toggle" data-toggle="dropdown"></a>
+                        <div class="dropdown-menu">
+                            <a  class="dropdown-item" onclick="LogOut()">LogOut</a>
+                            
+                            <a href="my-account.html" class="dropdown-item ">My Account</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown ">
+                        <div class="notifications"  data-toggle="dropdown">
+                        <span class="numberNotifications" id="numberNotifications" style="display: none;" id="numberNotifications"></span>
+                        <a  class="nav-link dropdown-toggle" style="color:#20b7ff" ><i class="fa fa-bell fa-lg" aria-hidden="true" ></i> </a>
+                       </div>
+                        <div class="dropdown-menu" style="width: 350px;margin-left: -280px;z-index: 9999;height: 350px;overflow: scroll;">
+                            <div class="notification-heading">
+                                <h4 class="menu-title">Notifications</h4>
+                            </div>
+                            <li class="divider" id="divider"></li>
+                        
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="w3-container" style="z-index: 10000;">
+                      
+                        <div id="id01" class="w3-modal">
+                            
+                          <div class="w3-modal-content w3-animate-opacity w3-card-4">
+                            <header class="w3-container w3-teal" style="background-color: #20b7ff !important;"> 
+                              <span onclick="document.getElementById('id01').style.display='none'" 
+                              class="w3-button w3-display-topright">&times;</span>
+                              <h2 class="namesender"></h2>
+                            </header>
+
+                                
+                            <div class="w3-container">
+                                <div class="nav-item dropdown">
+                                    <a href="#" style="font-size: 20px ;position: absolute;right: 0;" class="nav-link dropdown-toggle" data-toggle="dropdown"></a>
+                                    <div class="dropdown-menu" style="margin-left: -12%;">
+                                        <a class="dropdown-item" id="deleteNotification">Delete</a>
+                                     </div>
+                                   </div>
+                                   <div class="sended" style="display: none;">
+                                <span style="font-size: 20px;">Your Message:</span>
+                                
+                              <p  class="Mymessage"></p>
+                            </div>
+                            </div>
+                            <div class="w3-container">
+                                <span class="subjectDisplay" style="font-size: 20px;"></span>
+                              <p  class="messageDisplay"></p>
+                              
+                             
+                            </div>
+                        
+                            <footer class="w3-container w3-teal " id="footerModel" style="background-color: #20b7ff !important; display: none;">
+                                <div class="col-md-12" style="margin-top:1% ;">
+                                    <div class="row">
+                                        <textarea name="replay" class="co-md-10" id="replayNotification"  ></textarea>
+                                        <button class="form-control col-md-2" id="replayNotificationBtn"  style="height: 70px;">Replay</button>
+
+                                    </div>
+
+                                </div>
+                                
+                        
+                            </footer>
+                          </div>
+                        </div>
+                      </div>
+
+                    
+                </div>
+
+                </div>
+             
+
+                <div class="col-md-2 " id="LoginRegister" style="margin-left: 13%;padding-left: 2%;display: none;">
+                    <a href="login.html"><button class="btn btnLogin">Login</button></a>
+                    <a href="Register.html"><button class="btn btnRegister">Register</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/Auth.js"></script>
+    <script src="js/contact.js"></script>

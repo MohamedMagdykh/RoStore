@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RoStore</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet"/>
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/my-account.css" rel="stylesheet">
+        <link href="css/dashboard.css" rel="stylesheet">
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+     <div id="header"></div>
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">My Account</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- My Account Start -->
+        <div class="my-account">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills " role="tablist" aria-orientation="vertical">
+                            <a class="nav-link panel-title tabActive " style="display: none;" id="dashboard-nav" data-toggle="collapse" href="#collapseDash"role="button" aria-expanded="false" aria-controls="collapseDash"><i class="fa fa-tachometer-alt"></i>Dashboard <svg class="bi bi-chevron-right" style="position: absolute;right: 25; " width="25" height="25" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg></a>
+                            <div class="collapse" id="collapseDash">
+                                <a class="nav-link tabActive  "   id="sponsor-nav" data-toggle="pill" href="#sponsor-tab" role="tab">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sponsor</a>
+                                <a class="nav-link tabActive"  id="users-nav" data-toggle="pill" href="#Uses-tab" role="tab">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Users</a>
+                              </div>
+                            <a class="nav-link tabActive" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Orders</a>
+                            <a class="nav-link tabActive" style="display: none;" id="requstOrders-nav" data-toggle="pill" href="#requstOrders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Requst Orders</a>
+
+                            <a class="nav-link tabActive" style="display: none;" id="product-nav" data-toggle="pill" href="#Product-tab" role="tab"><i class="fa fa-shopping-bag"></i>Products</a>
+                            <!-- <a class="nav-link tabActive" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab"><i class="fa fa-credit-card"></i>Payment Method</a> -->
+                            <!-- <a class="nav-link tabActive" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker-alt"></i>address</a> -->
+                            <a class="nav-link tabActive" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Account Details</a>
+                            <a class="nav-link tabActive" id="logOutbtn" onclick="LogOut()"><i class="fa fa-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 ">
+                        <div class="tab-content">
+                            <div class="tab-pane fade" id="Uses-tab" role="tabpanel" aria-labelledby="orders-nav">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Name User</th>
+                                                <th>Date</th>
+                                                <th>Type</th>
+                                                <th>Change</th>
+                                                
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody id="usersDataShow">
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        
+                            <div class="tab-pane fade show " id="sponsor-tab" role="tabpanel" aria-labelledby="sponsor-nav">
+                                <!-- <h4>Dashboard</h4> -->
+                                <div class="tab">
+                                    <button class="tablinks" style="width: 50%;" id="AddSponserIcon" onclick="sponsor(event, 'addSponsor')">Add</button>
+                                    <button class="tablinks" style="width: 50%;"  id="showAllSponser" onclick="sponsor(event, 'allSponser')">Show</button>
+                                  </div>
+                                  
+                                  <!-- Tab addSponsor content -->
+                                  <div id="addSponsor" class="tabcontent" >
+                                    <div class="col-md-12 text-center">
+                                        
+                                    
+                                            <div class="slideshow-container" id="logoShow">
+                                                <img src="img/noimg.png" style="width: 100%;" class="noImgSponsor" id="noImgSponsor"  alt="">
+    
+                                            </div>
+                                            <div class="custom-file col-md-12" style="margin-top: 1%;" >
+                                                    <input type="file"  id="selectLogo" class="custom-file-input" required >
+                                                    <label class="custom-file-label" id="imgSponsor" for="inputGroupFile01" >no logo choosen </label>
+                                                </div>
+                                                <div style="display: none;margin-top:20px;width: 100%;" id="imgSponsorVal" class="alert alert-danger" role="alert"></div>
+
+                                                <div class="row col-md-12" style="margin-top: 15px;" >
+                                              
+                                                      
+                                                        <div id="logodownloadbar" class="progress col-md-7" style="width: 50%;
+                                                        margin-left: 32px;
+                                                        margin-top: 8px;
+                                                        padding-right: 0px;
+                                                        padding-left: 0px; 
+                                                        display: none;
+                                                        "
+                                                        >
+                                                        <div id="logodownload" class="progress-bar progress-bar-info progress-bar-striped"
+                                                        role="progressbar" attr.aria-valuenow = "0"
+                                                        aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <button class="col-md-4 btn-primary form-control " disabled id="addLogo" style="margin-left: 2%;
+                                                    font-size: 15px;
+                                                    color: #fff;
+                                                    background-color: rgba(0, 123, 255, 0.63);
+                                                    border-color: rgba(0, 123, 255, 0.6);"
+                                                      >Upload</button>
+                                                  </div>
+                                                <input class="form-control text-center" id="nameCompany" style="margin-top: 5%;" type="text" placeholder="Name Company" required>
+                                                <div style=" margin-top: 20px;width: 100%; display: none;" id="nameCompanyVal" class="alert alert-danger" role="alert"></div>
+                                                <div class="col-md-12">
+                                                <div class="row" style="margin-top: 5%;">
+                                                    
+                                                    <div  class="col-md-6">
+                                                        <input id="datepicker"  placeholder="Date From"   required />
+                                                        <div style=" margin-top: 20px;width: 97%; display: none;" id="datepickerVal" class="alert alert-danger" role="alert"></div>
+                                                    </div>
+                                   
+
+                                                        <div class="col-md-6 divDatepicker2">
+                                                            <input id="datepicker2"  placeholder="Date To"  required />
+                                                            <div style=" margin-top:20px;width: 100%; display: none;" id="datepicker2Val" class="alert alert-danger" role="alert"></div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="form-control" id="btnAddSponser"  >ADD</button>
+
+                                            </div>
+                                    
+                                  
+                                  </div>
+                                  
+                                  <div id="allSponser" class="tabcontent">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Name Company</th>
+                                                        <th>Date From</th>
+                                                        <th>Date To</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="dataSponserShow">
+                                               
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                  
+                     
+                            </div>
+                            <div class="tab-pane fade show " id="Product-tab" role="tabpanel" aria-labelledby="Product-nav">
+                                <!-- <h4>Dashboard</h4> -->
+                                <div class="tab">
+                                    <button class="tablinks" style="width: 50%;" id="AddProductIcon" onclick="sponsor(event, 'addProduct')">Add</button>
+                                    <button class="tablinks" style="width: 50%;"  id="showAllProduct" onclick="sponsor(event, 'allProduct')">Show</button>
+                                  </div>
+                                  
+                                  <!-- Tab addSponsor content -->
+                                  <div id="addProduct" class="tabcontent" >
+                                    <div class="tab-pane " id="addproduct-tab" role="tabpanel" aria-labelledby="account-nav">
+                                        <h4>Add Product</h4>
+                                        <div class="row">
+                                            
+                                            <div class="col-md-6">
+                                                <!-- Slideshow container -->
+                                           <!-- Slideshow container -->
+                                                <div class="slideshow-container slideshow " id="slideshow">
+        
+                                                    <!-- Full-width images with number and caption text -->
+                                                
+                                                
+                                                  
+                                                
+                                                
+                                                    <!-- Next and previous buttons -->
+                                                    <a class="prev" style="display: none;" id="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                                    <a class="next" style="display: none;" id="next" onclick="plusSlides(1)">&#10095;</a>
+                                                </div>
+                                                <br>
+                                                
+                        
+                                                
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="col-md-12">
+                                                <input class="form-control" type="text" id="ProductName" placeholder="Product Name" required>
+                                               
+                                                <div style="display: none;" id="ProductNameVal" class="alert alert-danger" role="alert">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" placeholder="Description About Your Product " name="" id="DescriptionDescription" cols="30" rows="3" required></textarea>
+                                                
+                                                <div style="display: none;" id="DescriptionDescriptionVal" class="alert alert-danger" role="alert"></div>
+                                            </div>
+                                            <div  class="col-md-12">
+                                                <select class="form-control TypeProduct" id="TypeProduct" required >
+                                                  <option disabled selected>Select Type Of Product</option>
+                                                  <option>Clothes</option>
+                                                  <option>Electronics & Accessories</option>
+                                                  <option>Watches</option>
+                                                </select>
+                                                <br>
+                                                <div style="display: none;" id="TypeProductVal" class="alert alert-danger" role="alert"></div>
+        
+                                              </div>
+                                            <div class="col-md-12 product-clothes-color" id="product-clothes-color"  style="display: none;">
+                                                
+                                                    <span>Color:</span>
+                                             
+                                                    <div class="color-choose">
+                                                        
+                                                      <div class="row">
+                                                          <div class="col-md-3">
+                                                            <input data-image="red" class="clear" type="checkbox" id="red" name="color" value="red" >
+                                                            <label for="red"><span></span></label>
+        
+                                                          </div>
+                                                       
+                                                        <input class="col-md-2 form-control" type="text" id="redSize"  placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="redAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;"  id="addred">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                          <div class="col-md-4" id="showSelectSizeRed"></div>
+                                                          <div class="col-md-6" id="showSelectAmountRed" style="margin-left:-20px"></div>
+                                                          
+                                                      </div>
+                                                     
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="blue" class="clear" type="checkbox" id="blue" name="color" value="blue">
+                                                            <label for="blue"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" placeholder="Size" id="blueSize">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" type="number" id="blueAmount"  placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addblue">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeBlue"></div>
+                                                        <div class="col-md-6" id="showSelectAmountBlue" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="black" class="clear" type="checkbox" id="black" name="color" value="black">
+                                                            <label for="black"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" id="blackSize" placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="blackAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addblack">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeBlack"></div>
+                                                        <div class="col-md-6" id="showSelectAmountBlack" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="white" class="clear" type="checkbox" id="white" name="color" value="white">
+                                                            <label for="white"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" id="whiteSize" placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="whiteAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addwhite">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeWhite"></div>
+                                                        <div class="col-md-6" id="showSelectAmountWhite" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="green" class="clear" type="checkbox" id="green" name="color" value="green">
+                                                            <label for="green"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" id="greenSize" placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="greenAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addgreen">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeGreen"></div>
+                                                        <div class="col-md-6" id="showSelectAmountGreen" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="yellow" class="clear" type="checkbox" id="yellow" name="color" value="yellow">
+                                                            <label for="yellow"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" id="yellowSize" placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="yellowAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addyellow">Add</button>
+                                                      </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeYellow"></div>
+                                                        <div class="col-md-6" id="showSelectAmountYellow" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input data-image="gray" class="clear"  type="checkbox"  id="gray" name="color" value="gray">
+                                                            <label for="gray"><span></span></label>
+                                                        </div>
+                                                        <input class="col-md-2 form-control" type="text" id="graySize" placeholder="Size">
+                                                        <input class="col-md-3 form-control" style="margin-left:15px;margin-right:15px" id="grayAmount" type="number" placeholder="Amount">
+                                                        <button class="col-md-2 form-control" style="background:#39ade4;color: white;" id="addgray">Add</button>
+                                                      </div>
+                                                    </div>
+                                                      <div class="row " style="margin-left: 88px;  margin-bottom: 10px;">
+                                                        <div class="col-md-4" id="showSelectSizeGray"></div>
+                                                        <div class="col-md-6" id="showSelectAmountGray" style="margin-left:-20px"></div>
+                                                        
+                                                    </div>
+                                                    
+                                                    <button class="form-control" style="background:#39ade4;color: white;" id="addcolorsClothes">Add Colors Select</button>
+                                             
+                                                  
+                                                
+                                            </div>
+                                            <div class="col-md-12 product-other-color" id="product-other-color" style="display: none;">
+                                                <div class="product-color">
+                                                    <span>Color</span>
+                                           <div class="color-choose color-choose-other ">
+                                               <div class="row" style="margin-left: 1%;">
+                                                <div class="col-md-6">
+                                                        <div>
+                                                            <div class="row">
+                                                                <div>
+                                                                    <input data-image="red" type="checkbox" id="red2" name="color" value="red" >
+                                                                    <label for="red2"><span></span></label>
+                                                                </div>
+                                                                <input style="margin-left: 5%; width: 50%;"  class="form-control"  id="redOther" type="number" placeholder="Amount">
+        
+                                                            </div>
+                                                        </div>
+                                                            <div class="row">
+                                                        <div>
+                                                            <input data-image="blue" type="checkbox" id="blue2" name="color" value="blue">
+                                                            <label for="blue2"><span></span></label>
+                                                        </div>
+                                                        <input class="form-control" style="margin-left: 5%; width: 50%;"   id="blueOther" type="number" placeholder="Amount">
+                                                        </div>
+                                                        <div class="row">
+        
+                                                        <div>
+                                                            <input data-image="black" type="checkbox" id="black2" name="color" value="black">
+                                                            <label for="black2"><span></span></label>
+                                                        </div>
+                                                        <input class=" form-control" style="margin-left: 5%; width: 50%;"   id="blackOther" type="number" placeholder="Amount">
+                                                        </div>
+                                                        <div class="row">
+        
+                                                            <div>
+                                                              <input data-image="white" type="checkbox" id="white2" name="color" value="white">
+                                                              <label for="white2"><span></span></label>
+                                                            </div>
+                                                            <input class="form-control" style="margin-left: 5%; width: 50%;"   id="whiteOther" type="number" placeholder="Amount">
+                                                          </div>
+                                                        </div>
+                                                
+        
+                                                     
+                                                      <div class="col-md-6">
+                                                    
+                                                      <div class="row">
+        
+                                                      <div>
+                                                        <input data-image="green" type="checkbox" id="green2" name="color" value="green">
+                                                        <label for="green2"><span></span></label>
+                                                      </div>
+                                                      <input class="form-control" style="margin-left: 5%; width: 50%;"   id="greenOther" type="number" placeholder="Amount">
+                                                    </div>
+                                                      <div class="row">
+        
+                                                      <div>
+                                                        <input data-image="yellow" type="checkbox" id="yellow2" name="color" value="yellow">
+                                                        <label for="yellow2"><span></span></label>
+                                                      </div>
+                                                      <input style="margin-left: 5%; width: 50%;"  class=" form-control"  id="yellowOther" type="number" placeholder="Amount">
+                                                    </div>
+                                                      <div class="row">
+        
+                                                      <div>
+                                                        <input data-image="gray" type="checkbox" id="gray2" name="color" value="gray">
+                                                        <label for="gray2"><span></span></label>
+                                                      </div>
+                                                      <input class=" form-control"  id="grayOther" style="margin-left: 5%; width: 50%;"  type="number" placeholder="Amount">
+                                                    </div>
+                                                   </div>
+                                                
+                                                </div>
+        
+        
+                                                      <button class="form-control" style="background:#39ade4;color: white;" id="addcolorsOther">Add Colors Select</button>
+                                                    </div>
+                                             
+                                                  </div>
+                                                
+                                            </div>
+                                          
+                                            <div class="custom-file col-md-11" style="margin-left: 15px;
+                                            margin-bottom: 15px;">
+                                                <input type="file"  id="selectPhotos" class="custom-file-input" multiple >
+                                                <label class="custom-file-label" id="imgInp" for="inputGroupFile01" >no image choosen </label>
+                                              </div>
+        
+                                          <div class="row col-md-12" style="margin-bottom: 10px;" >
+                                         
+                                          <button class="col-md-6 btn-primary form-control " disabled id="addphotos" style="margin-left: 20px;
+                                          font-size: 15px;
+                                          color: #fff;
+                                          background-color: rgba(0, 123, 255, 0.63);
+                                          border-color: rgba(0, 123, 255, 0.6);
+                                          "
+                                            >Upload Photos</button>
+                                            <div id="photosdownloadbar" class="progress col-md-12" style="
+                                            margin-left: 32px;
+                                            margin-top: 8px;
+                                            padding-right: 0px;
+                                            padding-left: 0px; 
+                                            display: none;">
+                                              <div id="photosdownload" class="progress-bar progress-bar-info progress-bar-striped"
+                                                role="progressbar" attr.aria-valuenow = "0"
+                                                aria-valuemin="0" aria-valuemax="100"
+                                                  >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+        
+                                         
+                                                <input  class="form-control" type="number" id="PriceProduct" placeholder="Price $" required>
+                                                
+                                            </div>
+                                       
+                                            
+                                            <div style="display: none; margin-left: 30px;width: 100%;" id="PriceProductVal" class="alert alert-danger" role="alert"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style="margin-bottom: 3%;">
+                                        <button class="btn AddProduct"    id="AddProduct">Add Product</button>
+                                        
+                                        
+                                    </div>
+                                        </div>
+                                    
+                                  
+                                  </div>
+                                  
+                                  <div id="allProduct" class="tabcontent text-center">
+                                        <div class="table-responsive" id="tableProduct">
+                                            <table class="table table-bordered">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Name Product</th>
+                                                        <th>Price</th>
+                                                        <th>Date</th>
+                                                        <th>Action</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="dataProductShow">
+                                               
+                                                </tbody>
+                                              
+                                            </table>
+                                        
+                      
+               
+                                        </div>
+                                        <div class="col-md-12">
+                                            <nav aria-label="PageRequstOrder navigation example ">
+                                                <ul class="pagination justify-content-center" id="pagination" >
+                                              
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        </div>
+                                    </div>
+                                  
+                     
+                            
+                            <div class="tab-pane fade text-center" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
+                                <div class="table-responsive" id="tableOrder">
+                                    <table class="table table-bordered" >
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Photo</th>
+                                                <th>Product</th>
+                                                <th>Date</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyMyOrder">
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-12">
+                                    <nav aria-label="Page navigation example ">
+                                        <ul class="pagination justify-content-center" id="paginationOrder" >
+                                      
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade text-center" id="requstOrders-tab" role="tabpanel" aria-labelledby="requstOrders-nav">
+                                <div class="table-responsive" id="tableRequstOrder">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Photo</th>
+                                                <th>Product</th>
+                                                <th>Date</th>
+                                                <th>Price</th>
+                                                <th>Address</th>
+                                                <th>Phone Customer</th>
+                                                <th>Name Customer</th>
+                                                <th>Status</th>
+
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyRequstOrder">
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-12">
+                                    <nav aria-label="Page navigation example ">
+                                        <ul class="pagination justify-content-center" id="paginationRequstOrder" >
+                                      
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- <div class="tab-pane fade" id="payment-tab" role="tabpanel" aria-labelledby="payment-nav">
+                                <h4>Payment Method</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
+                                </p> 
+                            </div> -->
+                            <!-- <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
+                                <h4>Address</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Payment Address</h5>
+                                        <p>123 Payment Street, Los Angeles, CA</p>
+                                        <p>Mobile: 012-345-6789</p>
+                                        <button class="btn">Edit Address</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Shipping Address</h5>
+                                        <p>123 Shipping Street, Los Angeles, CA</p>
+                                        <p>Mobile: 012-345-6789</p>
+                                        <button class="btn">Edit Address</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
+                                <h4>Account Details</h4>
+                                <div class="row AccountDetails" style="margin-left: 0%;">
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <h2 id="fristName"></h2>
+                                            <i class="fas fa-pencil-alt" id="btnFristName" style="margin-left: 1%;margin-top: 1%;"></i>
+                                       </div> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <h2 id="lastName"></h2>
+                                            <i class="fas fa-pencil-alt" id="btnLastName" style="margin-left: 1%;margin-top: 1%;"></i>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                     <div class="row">
+                                        <h2 id="phone"></h2>
+                                        <i class="fas fa-pencil-alt" id="btnPhone" style="margin-left: 1%;margin-top: 1%;"></i>
+                                     </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <h2 id="mail"></h2>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <h2 id="type"></h2>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                             
+                            </div>
+                       
+                                 
+                                </div>
+                                
+                              
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account End -->
+        
+   
+        
+        <!-- Footer  -->
+       
+     <div id="footer"></div>
+        <!-- Footer End -->   
+        <!-- ModelsFristNAME -->   
+        <div id="myModalFristName" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" id="closeFrist" style="margin-bottom: 2%;">&times;</span>
+              <input class="form-control" id="fristNameInput" placeholder="Update Frist Name">
+              <button class="btn" style="width: 20%;margin-left: 80%;" id="btnFristNameUpdate">Update</button>
+            </div>
+          
+          </div>
+          <!-- ModelsLastName -->   
+        <div id="myModalLastName" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" id="closeLast" style="margin-bottom: 2%;">&times;</span>
+              <input class="form-control" id="LastNameInput" placeholder="Update Last Name">
+              <button class="btn" style="width: 20%;margin-left: 80%;" id="btnLastNameUpdate">Update</button>
+            </div>
+          
+          </div>
+          <!-- ModelsPhone -->   
+        <div id="myModalPhone" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" style="margin-bottom: 2%;" id="closePhone">&times;</span>
+                <input class="form-control" id="PhoneInput" placeholder="Update Phone">
+                <button class="btn" style="width: 20%;margin-left: 80%;" id="btnPhoneUpdate">Update</button>
+            </div>
+          
+          </div>
+
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+         <!--firebase-->
+         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+         <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+              <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
+              <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+           <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+         
+         <script>
+           // Your web app's Firebase configuration
+           // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+           var firebaseConfig = {
+             apiKey: "AIzaSyDc5chBpM3CD5hhBbYDfewX8rz-kwdxV64",
+             authDomain: "mystore-c13ce.firebaseapp.com",
+             databaseURL: "https://mystore-c13ce.firebaseio.com",
+             projectId: "mystore-c13ce",
+             storageBucket: "mystore-c13ce.appspot.com",
+             messagingSenderId: "502476345346",
+             appId: "1:502476345346:web:07fcb962978cb53ebfd71b",
+             measurementId: "G-7PBBLFCBLD"
+           };
+           // Initialize Firebase
+           firebase.initializeApp(firebaseConfig);
+           firebase.analytics();
+         </script>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        <script src="node_modules/toastr/build/toastr.min.js"></script>
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/my-account/dashboard.js"></script>
+        <script src="js/my-account/products.js"></script>
+        <script src="js/my-account/orders.js"></script>
+        <script src="js/my-account/accountDetails.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("html/shareHtmlFile/Header.html"); 
+              $("#footer").load("html/shareHtmlFile/Footer.html"); 
+             
+            });
+            </script> 
+                <script>
+                 
+                    if(localStorage.getItem("checkLog")=="false"){
+                    location.href="login.html"
+                    }
+            </script>
+    </body>
+</html>

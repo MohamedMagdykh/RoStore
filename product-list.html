@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RoStore </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet"/>
+
+        <script src="node_modules/toastr/build/toastr.min.js"></script>
+
+        <!-- Template Stylesheet -->
+        <link href="css/product-list.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <div id="header"></div>
+ 
+        
+     
+
+        <!--  Bar End -->  
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a >Products</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- Product List Start -->
+        <div class="product-view">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-md-12" id="filters">
+                                <div class="product-view-top">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12" >
+                                            <div class="product-search">
+                                                <input type="text" id="search" placeholder="Search">
+                                                <button><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-12 MQCateFilter ">
+                                            <div class="product-short">
+                                                <div class="dropdown">
+                                                    
+                                                        <select class="dropdown-menu dropdown-toggle dropdown-menu-right" id="filterCate" >
+                                                            <option class="dropdown-item" selected>All</option>
+                                                            <option class="dropdown-item">Clothes</option>
+                                                            <option class="dropdown-item">Electronics & Accessories</option>
+                                                            <option class="dropdown-item">Watches</option>
+
+                                                        </select>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-12 " id="product-price-range">
+                                            <div class="product-price-range">
+                                                <div class="dropdown">
+                                                    <select class="dropdown-menu dropdown-toggle dropdown-menu-right" id="filterPrice" >
+                                                        <option class="dropdown-item" selected>All</option>
+                                                        <option class="dropdown-item">$1 to $500</option>
+                                                        <option class="dropdown-item">$501 to $1000</option>
+                                                        <option class="dropdown-item">more than 1000</option>
+                                                        
+
+                                                    </select>
+
+                                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                           
+                                    <div class="col-md-12">
+                                        <div class="cardproduct2 row" id="cardproduct2">
+
+                                        </div>
+                                    </div>
+                            </div>
+                       
+                       
+                        
+                        <!-- Pagination Start -->
+                        
+                        <div class="col-md-12">
+                            <nav aria-label="Page navigation example ">
+                                <ul class="pagination justify-content-center" id="pagination" >
+                              
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Pagination Start -->
+                    </div>   
+                    <div id="pagination-container"></div>
+                      
+                    
+               
+                </div>
+            </div>
+        </div>
+        <!-- Product List End -->  
+        
+        <!-- Brand Start -->
+        <div class="brand" id="brand">
+          
+        </div>
+        <!-- Brand End -->
+        
+        <!-- Footer Start -->
+        <div id="footer">
+       
+        </div>
+        <!-- Footer End -->
+        
+             
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        <script src="node_modules/toastr/build/toastr.min.js"></script>
+
+
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+             <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
+             <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+        
+        <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+            apiKey: "AIzaSyDc5chBpM3CD5hhBbYDfewX8rz-kwdxV64",
+            authDomain: "mystore-c13ce.firebaseapp.com",
+            databaseURL: "https://mystore-c13ce.firebaseio.com",
+            projectId: "mystore-c13ce",
+            storageBucket: "mystore-c13ce.appspot.com",
+            messagingSenderId: "502476345346",
+            appId: "1:502476345346:web:07fcb962978cb53ebfd71b",
+            measurementId: "G-7PBBLFCBLD"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+        </script>
+       
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/product-list.js"></script>
+       
+        <script> 
+            $(function(){
+              $("#header").load("html/shareHtmlFile/Header.html"); 
+              $("#footer").load("html/shareHtmlFile/Footer.html");
+              $("#brand").load("html/shareHtmlFile/prandCarousel.html"); 
+             
+            });
+            </script> 
+    </body>
+</html>

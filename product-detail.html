@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RoStore</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/product-detail.css" rel="stylesheet">
+        <link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+       <div id="header"></div>
+
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="product-list.html">Products</a></li>
+                    <li class="breadcrumb-item active">Product Detail</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- Product Detail Start -->
+        <div class="product-detail">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product-detail-top">
+                            <div class="row align-items-center">
+                                <div class="col-md-5 ">
+                                    <div class="slideshow-container slideshow " id="photosOfOneProduct">
+
+                                        <!-- Full-width images with number and caption text -->
+                                    
+                                    
+                                      
+                                    
+                                    
+                                        <!-- Next and previous buttons -->
+                                        <a class="prev" style="display: none;" id="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="next" style="display: none;" id="next" onclick="plusSlides(1)">&#10095;</a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="product-content">
+                                        <div class="title"><h2 id="ProductName"></h2></div>
+                                      
+                                        <div class="price">
+                                            <h4>Price:</h4>
+                                            <p id="productprice"> </p>
+                                        </div>
+                                        <div class="quantity">
+                                            <h4>Order :</h4>
+                                            <div class="qty">
+                                                <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                <input type="text" value="1" id="quantityOrder"> 
+                                                <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="p-size" >
+                                            <h4>Quantity:</h4>
+                                            <div class="btn-group btn-group-sm" id="quantityProduct">
+                                              
+                                            </div> 
+                                        </div>
+                                        <div class="p-size" id="sizeshow" style="display: none;"> 
+                                            <h4>Size:</h4>
+                                            <div class="btn-group btn-group-sm" id="sizeProduct">
+                                              
+                                            </div> 
+                                        </div>
+                                        <!-- <div class="p-color">
+                                            <h4>Color:</h4>
+                                            
+                                                <ul class="nav nav-pills nav-justified  " style="background: none;border-radius: .4rem;">
+                                                    <li class="nav-item " id="White" style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;">
+                                                        <a class="nav-link  active " id="whiteActive" data-toggle="pill" style="border-radius: .4rem;"   href="#description">White</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="red">
+                                                        <a    class="nav-link" data-toggle="pill" id="redActive" style="border-radius: .4rem;" href="#reviews">red</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="Blue">
+                                                        <a    class="nav-link" data-toggle="pill" id="blueActive" style="border-radius: .4rem;" href="#reviews">Blue</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="yellow">
+                                                        <a    class="nav-link" data-toggle="pill" id="yellowActive" style="border-radius: .4rem;" href="#reviews">Yellow</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="Black">
+                                                        <a    class="nav-link" data-toggle="pill" id="blackActive" style="border-radius: .4rem;" href="#reviews">Black</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="gray">
+                                                        <a    class="nav-link" data-toggle="pill" id="grayActive" style="border-radius: .4rem;" href="#reviews">Gray</a>
+                                                    </li>
+                                                    <li class="nav-item " style="display: none;border: 1px solid #20b7ff;border-radius: .4rem;" id="green">
+                                                        <a    class="nav-link" data-toggle="pill" id="greenActive" style="border-radius: .4rem;" href="#reviews">Green</a>
+                                                    </li>
+
+                                                </ul>
+                                          
+                                            
+                                        </div> -->
+                                        <div class=" p-color" id="product-color" >
+                                            <div class="product-color">
+                                                <h4>Color:</h4>
+                                         
+                                                <div class="color-choose color-choose-other ">
+                                                  <div id="red" style="display: none;">
+                                                    <input data-image="red" type="radio" id="red2" name="color" value="red"  >
+                                                    <label for="red2"><span></span></label>
+                                                  </div>
+                                                  
+                                                  <div id="blue" style="display: none;">
+                                                    <input data-image="blue" type="radio" id="blue2" name="color"  value="blue">
+                                                    <label for="blue2"><span></span></label>
+                                                  </div>
+                                                  <div id="black" style="display: none;">
+                                                    <input data-image="black" type="radio" id="black2" name="color" value="black">
+                                                    <label for="black2"><span></span></label>
+                                                  </div>
+                                                  <div id="white" style="display: none;">
+                                                    <input data-image="white" type="radio" id="white2" name="color"  value="white">
+                                                    <label for="white2"><span></span></label>
+                                                  </div>
+                                                  <div id="green" style="display: none;">
+                                                    <input data-image="green" type="radio" id="green2" name="color" value="green">
+                                                    <label for="green2"><span></span></label>
+                                                  </div>
+                                                  <div id="yellow" style="display: none;">
+                                                    <input data-image="yellow" type="radio" id="yellow2" name="color"  value="yellow">
+                                                    <label for="yellow2"><span></span></label>
+                                                  </div>
+                                                  <div id="gray" style="display: none;">
+                                                    <input data-image="gray" type="radio" id="gray2" name="color"  value="gray">
+                                                    <label for="gray2"><span></span></label>
+                                               
+                                         
+                                              </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                        <div class="action">
+                                            <a class="btn" id="addToCartDetails" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                                            <a class="btn" id="buyProduct"  style="color: #ffffff; background: #20b7ff;"  href="#"><i class="fa fa-shopping-bag"></i>Buy Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row product-detail-bottom">
+                            <div class="col-lg-12">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="pill" href="#description">Description</a>
+                                    </li>
+                                  
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="pill" id="numberReviews" href="#reviews"></a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div id="description" class="container tab-pane active">
+                                        <h4 id="headDescribtion"></h4>
+                                        <p id="textDescribtion">
+                                        </p>
+                                    </div>
+                                    
+                                    <div id="reviews" class="container tab-pane fade">
+                                    <div id="reviewsAdded"></div>
+                                        <div class="reviews-submit">
+                                            <h4>Give your Review:</h4>
+                                            <div class="rate" style="margin-bottom: 2%;">
+                                                <input type="radio" class="star" id="star5" name="rate" value="5" />
+                                                <label for="star5"  title="text">5 stars</label>
+                                                <input type="radio" class="star" id="star4" name="rate" value="4" />
+                                                <label for="star4"  title="text">4 stars</label>
+                                                <input type="radio" class="star" id="star3" name="rate" value="3" />
+                                                <label for="star3"  title="text">3 stars</label>
+                                                <input type="radio" class="star" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" class="star" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                              </div>
+                                            
+                                            <div class="row form " id="writeReview">
+                                               
+                                                <div class="col-sm-12">
+                                                    <textarea id="reviewText" placeholder="Review"></textarea>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <button id="btnReview">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+               
+                    </div>
+                    
+                 
+                </div>
+            </div>
+        </div>
+        <!-- Product Detail End -->
+        
+        <!-- Brand Start -->
+        <div class="brand" id="brand">
+          
+        </div>
+        <!-- Brand End -->
+        
+        <!-- Footer Start -->
+        <div id="footer"></div>      
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+         
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+             <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
+             <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+        
+        <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+            apiKey: "AIzaSyDc5chBpM3CD5hhBbYDfewX8rz-kwdxV64",
+            authDomain: "mystore-c13ce.firebaseapp.com",
+            databaseURL: "https://mystore-c13ce.firebaseio.com",
+            projectId: "mystore-c13ce",
+            storageBucket: "mystore-c13ce.appspot.com",
+            messagingSenderId: "502476345346",
+            appId: "1:502476345346:web:07fcb962978cb53ebfd71b",
+            measurementId: "G-7PBBLFCBLD"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+        </script>
+        <!-- HEADER AND FOOTER -->
+         <script>
+              $(function(){
+              $("#header").load("html/shareHtmlFile/Header.html"); 
+              $("#footer").load("html/shareHtmlFile/Footer.html"); 
+              $("#brand").load("html/shareHtmlFile/prandCarousel.html"); 
+
+             
+            });
+         </script>
+         <script src="node_modules/toastr/build/toastr.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/product-details.js"></script>
+        
+    </body>
+</html>

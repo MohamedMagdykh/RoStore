@@ -1,0 +1,268 @@
+#carouselExampleIndicators{
+    height: 850px;
+    width: 100%;
+
+}
+.imgcarousel{
+    background-size: 100% 100%;
+    height: 850px;
+    /* object-fit: contain; */
+    width: 100%;
+}
+
+.CoverPhoto {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+    background: rgba(37, 37, 37, 0.3);
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+
+  .headCarsouel{
+    font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+        font-size: 2em;
+	letter-spacing: .2em;
+	line-height: 1.1em;
+	margin:0px;
+	text-align: center;
+    text-transform: uppercase;
+    /* margin-top: 37%; */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 38%;
+  }
+  .pragraphCarsouel{
+     font-family: 'Open Sans', sans-serif; 
+     font-size: 30px;
+      font-weight: 300; 
+      line-height: 32px;
+       margin: 0 0 72px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 22%;
+  }
+  .navbar {
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    z-index: 100;
+    transition: background-color 1s ease 0s;
+    position: absolute;
+left: 0;
+right: 0;
+  }
+  .navbar-text{
+    color: white;
+     font-size: 1.2vw;
+     background:transparent;
+     border: 1px solid rgba(255, 255, 255, 0.664);
+     
+
+  }
+
+  .loginbtn{
+    margin-left: 2%;
+    margin-right: 4%;
+    float: left;
+ 
+}
+.navbar-toggler{
+    border: 1px solid white;
+}
+.nav-link:hover{
+    filter: drop-shadow(2px 4px 6px white)
+
+
+}
+.dropdown-toggle-notification::after{
+  display: none;
+}
+#numberNotifications
+{
+  top: 0px !important;
+right: 7px !important;
+}
+.collapse .navbar-nav 
+{
+  margin-left: 7% !important;
+}
+
+/* /////////////////////////////////////// */
+/* @media (max-width: 768px) {
+  .dropdownNotification{
+    margin-top:1% ;
+  }
+  .navbar-nav{
+    margin-left: 17% !important;
+  }
+  
+  #RecentProduct{
+    font-size: 37px !important;
+    padding: 0 !important;
+   
+
+  }
+  .dropdownCat{
+    width: 87%!important;
+
+  }
+  .ProductsNav{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .navbar-text{
+    font-size: 25px !important;
+  }
+  .imgcarousel{
+    height: 750px;
+  }
+  #carouselExampleIndicators{
+    height: 750px;
+
+}
+.carousel-caption{
+  display: block !important;
+}
+.headCarsouel{
+  margin-top: 110%!important;
+}
+.pragraphCarsouel{
+  font-size: 22px;
+}
+.dropdown-menuNotification{
+  margin-left: -120px !important;
+}
+
+} */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+  .collapse .navbar-nav 
+{
+  margin-left: 5% !important;
+}
+.ProductsNav
+{
+  margin-left: 7% !important;
+  margin-right: 7% !important;
+  
+}
+ .headCarsouel
+  {
+    font-size: 1.8em !important;
+
+  }
+  .pragraphCarsouel
+  {
+    font-size: 25px!important;
+
+  }
+  #filterCate
+  {
+    width: 84% !important;
+    margin-top: 2% !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+  #filterCate
+  {
+    width: 70% !important;
+    margin-top: 2% !important;
+  }
+  .ProductsNav
+  {
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    
+  }
+  .collapse .navbar-nav
+  {
+    margin-left: 0% !important;
+
+  }
+  .headCarsouel{
+    margin-top: 80%!important;
+  }
+  .headCarsouel
+  {
+    font-size: 1.7em !important;
+
+  }
+  .pragraphCarsouel
+  {
+    font-size: 20px!important;
+
+  }
+
+}
+@media only screen and (max-width: 767px) 
+{
+  #filterCate
+  {
+    width: 70% !important;
+    margin-top: 2% !important;
+  }
+  .collapse .navbar-nav
+  {
+    margin-left: 18% !important;
+
+  }
+  .imgcarousel{
+    height: 750px;
+  }
+  #carouselExampleIndicators{
+    height: 750px;
+
+}
+.carousel-caption{
+  display: block !important;
+}
+.headCarsouel{
+  margin-top: 70%!important;
+}
+.pragraphCarsouel{
+  font-size: 22px;
+}
+.headCarsouel
+{
+  font-size: 1.5em !important;
+
+}
+.pragraphCarsouel
+{
+  font-size: 15px!important;
+  
+
+}
+.pragraphCarsouel1
+{
+  margin: 0 0 40px !important; 
+
+}
+   
+ 
+
+}
+@media only screen and (max-width: 499px) 
+{
+  .product-price h3 
+  {
+    font-size: 1.5rem;
+  }
+  .ProductsNav
+  {
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    
+  }
+}

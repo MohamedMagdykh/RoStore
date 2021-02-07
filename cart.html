@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RoStore</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet"/>
+
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Top bar Start -->
+        <div id="header">
+            
+        </div>
+     
+        <!-- Top bar End -->
+        
+       
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Cart</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- Cart Start -->
+        <div class="cart-page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="cart-page-inner text-center" id="pageCart">
+                            <div class="table-responsive" id="tabelCart">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="align-middle">
+                                        
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cart-page-inner">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class=" form-control" id="location">
+                                        <option class="dropdown-item" selected>Inside Cairo</option>
+                                        <option class="dropdown-item" >OutSide Cairo</option>
+
+                                    </select>
+                                    <!-- <div class="coupon">
+                                        <input type="text" placeholder="Coupon Code">
+                                        <button>Apply Code</button>
+                                    </div> -->
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="cart-summary">
+                                        <div class="cart-content">
+                                            <h1>Cart Summary</h1>
+                                            <p>Sub Total<span id="subTotal"></span></p>
+                                            <p>Shipping Cost<span id="ShippingCost"></span></p>
+                                            <h2>Grand Total<span id="grandTotal">$100</span></h2>
+                                        </div>
+                                        
+                                        <div class="cart-btn  text-center">
+                                            
+                                            <button class="col-md-5" id="CheckoutBtn">Checkout</button>
+                                        </div>
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cart End -->
+        
+        <!-- Footer Start -->
+        <div class="footer" id="footer">
+           
+        </div>
+        <!-- Footer End -->
+        
+           
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+                  <!-- /////////////////////////start firebase ///////////////////////////////////////// -->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDc5chBpM3CD5hhBbYDfewX8rz-kwdxV64",
+    authDomain: "mystore-c13ce.firebaseapp.com",
+    databaseURL: "https://mystore-c13ce.firebaseio.com",
+    projectId: "mystore-c13ce",
+    storageBucket: "mystore-c13ce.appspot.com",
+    messagingSenderId: "502476345346",
+    appId: "1:502476345346:web:07fcb962978cb53ebfd71b",
+    measurementId: "G-7PBBLFCBLD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<!-- ///////////////////////////////////////////////end firebase/////////////////////////////////////////// -->
+
+      
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        <script src="node_modules/toastr/build/toastr.min.js"></script>
+
+        
+        <script>
+            $(function(){
+                  $("#header").load("html/shareHtmlFile/Header.html"); 
+                  $("#footer").load("html/shareHtmlFile/Footer.html"); 
+                 
+                });
+        </script>
+          <script>
+                 
+            if(localStorage.getItem("checkLog")=="false"){
+            location.href="login.html"
+            }
+    </script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/cart.js"></script>
+    </body>
+</html>
