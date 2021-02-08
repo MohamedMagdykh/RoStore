@@ -78,8 +78,8 @@ right: 0;
 .navbar-toggler{
     border: 1px solid white;
 }
-.nav-link:hover{
-    filter: drop-shadow(2px 4px 6px white)
+.notifications:hover{
+    filter: drop-shadow(1px 3px 3px white)
 
 
 }
@@ -93,7 +93,7 @@ right: 7px !important;
 }
 .collapse .navbar-nav 
 {
-  margin-left: 7% !important;
+  margin-left: 12% !important;
 }
 
 /* /////////////////////////////////////// */

@@ -185,24 +185,24 @@ function getNotifications(){
 
   
     if(read==false){
-        $(` <div class="notification-item" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
+        $(` <div class="notification-item" style="position:relative;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
         <h4 class="item-title">${nameUser}</h4>
         <span style="font-family: Krungthep;">${subject}:</span>
         <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
         -webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">${message}</p>
-        <span style="margin-left: 90%;color: rgb(126, 123, 123);">${date.num}${date.char}</span>
+        <span style="position: absolute;right: 5px;bottom: 5px;color: rgb(126, 123, 123);">${date.num}${date.char}</span>
       </div>`).insertAfter($("#divider"))
      
         NotificationsNotRead.push(allNotifications[i])
 
     }
     if(read==true){
-        $(` <div class="notification-item" style="background:#edeff1;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
+        $(` <div class="notification-item" style="position:relative;" style="background:#edeff1;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
         <h4 class="item-title">${nameUser}</h4>
         <span style="font-family: Krungthep;">${subject}:</span>
         <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
         -webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">${message}</p>
-        <span style="margin-left: 90%;color: rgb(126, 123, 123);">${date.num}${date.char}</span>
+        <span style="position: absolute;right: 5px;bottom: 5px;color: rgb(126, 123, 123);">${date.num}${date.char}</span>
       </div>`).insertAfter($("#divider"))
     }
 
@@ -394,12 +394,12 @@ function replyNotification(){
         if(read==false){
   
             
-              $(` <div class="notification-item" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
+              $(` <div class="notification-item" style="position:relative;" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
               <h4 class="item-title">${namereplay}</h4>
               <span style="font-family: Krungthep;">${subject}:</span>
               <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
               -webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">${replay}</p>
-              <span style="margin-left: 90%;color: rgb(126, 123, 123);">${date3.num}${date3.char}</span>
+              <span style="position: absolute;right: 5px;bottom: 5px;color: rgb(126, 123, 123);">${date3.num}${date3.char}</span>
             </div>`).insertAfter($("#divider"))
             
             NotificationsReplyNotRead.push(allNotificationsReply[i].data)
@@ -409,12 +409,12 @@ function replyNotification(){
               
               $(`
               
-               <div class="notification-item" style="background:#edeff1;" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
+               <div class="notification-item" style="position:relative;" style="background:#edeff1;" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
               <h4 class="item-title">${namereplay}</h4>
               <span style="font-family: Krungthep;">${subject}:</span>
               <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
               -webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">${replay}</p>
-              <span style="margin-left: 90%;color: rgb(126, 123, 123);">${date3.num}${date3.char}</span>
+              <span style="position: absolute;right: 5px;bottom: 5px;color: rgb(126, 123, 123);">${date3.num}${date3.char}</span>
               
             </div>`).insertAfter($("#divider"))
           }
