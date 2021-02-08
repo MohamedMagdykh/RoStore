@@ -1,9 +1,27 @@
 $(document).ready(function () {
-    $("#fristName").text("FristName : "+localStorage.getItem("fristName"))
-    $("#lastName").text("LastName : "+localStorage.getItem("lastName"))
-    $("#phone").text("Phone : "+ localStorage.getItem("phoneUser"))
-    $("#mail").text("Mail : "+localStorage.getItem("mailUser"))
-    $("#type").text( "Type : "+localStorage.getItem("typeUser"))
+
+    const getDataUser = new Promise((resolve, reject) => {
+      resolve
+      (
+        $("#fristName").text("FristName : "+localStorage.getItem("fristName")),
+        $("#lastName").text("LastName : "+localStorage.getItem("lastName")),
+        $("#phone").text("Phone : "+ localStorage.getItem("phoneUser")),
+        $("#mail").text("Mail : "+localStorage.getItem("mailUser")),
+        $("#type").text( "Type : "+localStorage.getItem("typeUser"))
+      )
+  
+      reject(error)
+     
+  })
+  getDataUser.then(res =>
+    {
+      setTimeout(() =>
+      {
+        $("#account-nav").click()
+        
+      }, 500);
+    })
+    
 })
 /////////////////fristname////////////////////////
 
