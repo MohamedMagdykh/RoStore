@@ -20,6 +20,9 @@ $(document).ready(function () {
   })
   getDataUser.then(res =>
     {
+      console.log(localStorage.getItem("checkGoToRequstOrder"))
+      if(localStorage.getItem("checkGoToRequstOrder")!="true")
+      {
       setTimeout(() =>
       {
    
@@ -28,6 +31,7 @@ $(document).ready(function () {
         
         
       }, 1500);
+      }
     })
     
 })

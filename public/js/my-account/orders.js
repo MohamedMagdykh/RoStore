@@ -8,7 +8,7 @@ $(document).ready(function(){
     
     // console.log(localStorage.getItem("checkGoToRequstOrder"))
 
-
+setTimeout(() => {
     if (localStorage.getItem("checkGoToRequstOrder")=="false") {
         
         
@@ -19,7 +19,11 @@ $(document).ready(function(){
         
         localStorage.setItem("checkGoToRequstOrder",false)
         $("#orders-nav").click()
+
     }
+    
+}, 2000);
+ 
 
     setTimeout(() => {
         
