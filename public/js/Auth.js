@@ -138,6 +138,8 @@ function login(mail,password){
     
       setTimeout(() => {
         location.href = "my-account.html"
+        localStorage.setItem("checkGoToRequstOrder",false)
+
       }, 4000);
     }
 

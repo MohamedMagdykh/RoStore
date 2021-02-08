@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  if (localStorage.getItem("checkGoToRequstOrder")=="false") {
+        
+        
+    $("#account-nav").click()
+}
 
     const getDataUser = new Promise((resolve, reject) => {
       resolve
@@ -17,9 +22,12 @@ $(document).ready(function () {
     {
       setTimeout(() =>
       {
-        $("#account-nav").click()
+   
+       $("#account-nav").click()
+
         
-      }, 500);
+        
+      }, 1500);
     })
     
 })
