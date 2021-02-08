@@ -623,7 +623,7 @@ function colorsClothes(){
             allColorSelect.push({"gray":{"color":"gray","amount":$("#grayOther").val()}})
         }
         setTimeout(() => {
-            console.log(allColorSelect)
+            // console.log(allColorSelect)
             document.getElementById("product-other-color").style.display="none"
         }, 500);
         
@@ -724,7 +724,7 @@ function uploadImageAsPromise (imageFile) {
                 var downloadURL = task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                     // console.log("File available at", downloadURL);
                     urlFiles.push(downloadURL)
-                    console.log(urlFiles)
+                    // console.log(urlFiles)
 
                   })
                 
@@ -883,7 +883,7 @@ var productsDataLength =[]
       
         if (productsDataLength.length == 0) {
             $("#tableProduct").hide
-            $("#allProduct").text("No Requst Order Yet")
+            $("#allProduct").text("No Product Yet")
             
         }
     });

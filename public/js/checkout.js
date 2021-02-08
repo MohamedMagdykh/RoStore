@@ -10,7 +10,7 @@ $(document).ready(function(){
 var dataOrderList = JSON.parse(localStorage.getItem("orders"))
 
 function ordersList(){
-    console.log(dataOrderList)
+    // console.log(dataOrderList)
     
     // var dataOrderList = JSON.parse(localStorage.getItem("orders"))
     // console.log(dataOrderList)
@@ -164,9 +164,14 @@ function orderUserMessage(){
       
         orderCompanyMessage();
         orderCompanyClientMessage();
-        orderUserAdminMessage();
+        if(localStorage.getItem("typeUser")=="admin")
+        {
+            orderUserAdminMessage();
+        }
+       
     });
 }
+
     function orderUserAdminMessage(){
 
         var datareplay = {

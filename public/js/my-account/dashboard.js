@@ -39,7 +39,7 @@ function sponsor(evt, option) {
     if (localStorage.getItem("typeUser")=="admin") {
         showSponser();
         getUsers();
-        console.log(localStorage.getItem("typeUser"))
+        // console.log(localStorage.getItem("typeUser"))
         $("#dashboard-nav").show();
         
     }
@@ -153,7 +153,7 @@ function complete(){
     var downloadURL = task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         // console.log("File available at", downloadURL);
         urlFiles2.push(downloadURL)
-        console.log(urlFiles2)
+        // console.log(urlFiles2)
 
       })
     
@@ -291,7 +291,8 @@ function showSponser(){
         if (day2.length < 2) 
             day2 = '0' + day2;
          
-    $("#dataSponserShow").append(`
+    $("#dataSponserShow").append(
+    `
     <tr>
     <td id="numberSponser">${i+1}</td>
     <td id="nameCompany">${NameCompany}</td>
@@ -441,11 +442,13 @@ function getUsers(){
         
         firebase.firestore().collection("users").doc(ALLusersData[i].id).update({type:$(".updateAccount").val()}).then(
             function(){
-                if ($(".updateAccount").val()=="client") {
-                    var message = `Hi ${fristName} your Account change to client`
-                }
                 if ($(".updateAccount").val()=="company") {
+                    var message = `Hi ${fristName} your Account change to client`
+                    // console.log("cl")
+                }
+                if ($(".updateAccount").val()=="client") {
                     var message = `Hi ${fristName} your Account change to company now you can add your products`
+                    
                 }
                 var datareplay = {
                     replay:message,

@@ -66,7 +66,7 @@ $("#btnSendMessage").on('click',function ValidateSendMessage(){
             
             }
             if(name.checkValidity() &&  Subject.checkValidity() && Message.checkValidity()){
-
+                // console.log("1")
                 addSendMessage();
 
             }
@@ -82,6 +82,7 @@ function addSendMessage(){
         read:false,
         date:new Date(),
     } 
+    
     firebase.firestore().collection("Notifications").add(data)
     .then(function(docRef) {
       
@@ -185,6 +186,8 @@ function getNotifications(){
 
   
     if(read==false){
+        // console.log("false")
+
         $(` <div class="notification-item" style="position:relative;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
         <h4 class="item-title">${nameUser}</h4>
         <span style="font-family: Krungthep;">${subject}:</span>
@@ -197,7 +200,8 @@ function getNotifications(){
 
     }
     if(read==true){
-        $(` <div class="notification-item" style="position:relative;" style="background:#edeff1;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
+        
+        $(` <div class="notification-item" style="position:relative;background:#edeff1;" id="${allNotifications[i].id}" onclick="document.getElementById('id01').style.display='block'">
         <h4 class="item-title">${nameUser}</h4>
         <span style="font-family: Krungthep;">${subject}:</span>
         <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
@@ -409,7 +413,7 @@ function replyNotification(){
               
               $(`
               
-               <div class="notification-item" style="position:relative;" style="background:#edeff1;" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
+               <div class="notification-item" style="position:relative;background:#edeff1;" id="${allNotificationsReply[i].id}" onclick="document.getElementById('id01').style.display='block'">
               <h4 class="item-title">${namereplay}</h4>
               <span style="font-family: Krungthep;">${subject}:</span>
               <p class="item-info" style="margin: 0 auto 4vh auto;display: -webkit-box;
@@ -421,17 +425,21 @@ function replyNotification(){
           $(".notification-item").on("click",function (){
             firebase.firestore().collection("NotificationsReply").doc($(this).attr('id')).update({read:true})
             if(allNotificationsReply.length!=0){
+               
             if($(this).attr('id') == allNotificationsReply[i].id){
+                // console.log(allNotificationsReply[i].data)
                 // $(".mySubject").text(`${yourRequst.mysubject}`+":")
                 var idDeletee = $(this).attr('id')
                 if(yourRequst != undefined && yourRequst != "undefined" && yourRequst != null && yourRequst != "null"){
                     $(".sended").show()
                     $(".Mymessage").text(`${yourRequst.myMessage}`)   
                 }
+               
+
                  
-            $(".namesender").text( "From: "+ `${namereplay}`)
-            $(".subjectDisplay").text(`${subject}`+":")
-            $(".messageDisplay").text(`${replay}`)
+            $(".namesender").text( "From: "+ `${allNotificationsReply[i].data.namereplay}`)
+            $(".subjectDisplay").text(`${allNotificationsReply[i].data.subject}`+":")
+            $(".messageDisplay").text(`${allNotificationsReply[i].data.replay}`)
             $("#deleteNotification").on("click",function(){
                 firebase.firestore().collection("NotificationsReply").doc(idDeletee).delete().then(function() {
                     document.getElementById('id01').style.display='none'

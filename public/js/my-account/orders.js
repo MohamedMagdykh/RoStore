@@ -1,11 +1,14 @@
 $(document).ready(function(){
     if (localStorage.getItem("typeUser")!="client") {
-        getOrders();    
+          
         $("#requstOrders-nav").show()  
     }
+    getOrders();  
 
     
     // console.log(localStorage.getItem("checkGoToRequstOrder"))
+
+
     if (localStorage.getItem("checkGoToRequstOrder")=="false") {
         
         
@@ -83,6 +86,9 @@ function getOrders()
 {
     firebase.firestore().collection("orders").onSnapshot(function(querySnapshot)
     {
+        // console.log("1")
+        localStorage.setItem("showOrder",false)
+        localStorage.setItem("RequstshowOrder",false)
         orders = []
         ordershow = []
         orderRequstshow = []
@@ -98,6 +104,8 @@ function getOrders()
            
             
          })
+       
+
          
              orders.sort(function(a,b)
              {
@@ -108,6 +116,7 @@ function getOrders()
             
                 firebase.firestore().collection("products").onSnapshot(function(querySnapshot)
                 {
+                    // console.log("2")
                     querySnapshot.forEach(function(doc)
                      {
                         for (let k = 0; k < orders[i].data.orders.length; k++)
@@ -122,6 +131,12 @@ function getOrders()
                                 
                                 var date = new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'numeric'}).format(time.setSeconds(orders[i].data.date.seconds))
                                 ordershow.push(doc.data())
+                                if(ordershow.length!=0)
+                                {
+                                    // console.log("3")
+                                    localStorage.setItem("showOrder",true)
+
+                                }
                                 var status 
                                 if (orders[i].data.orders[k].process == true) {
                                     status = '<td style="color: green;font-family: Beirut;">Approved</td>'
@@ -161,6 +176,11 @@ function getOrders()
                                     status = `<td><button  style="color:white;border: 1px solid green;background:green;" class="btn ">Done</button></td>`
                                 }
                                 orderRequstshow.push(doc.id)
+                                if(orderRequstshow.length!=0)
+                                {
+                                    localStorage.setItem("RequstshowOrder",true)
+
+                                }
                                 $("#tbodyRequstOrder").append(`
                                            <tr>
                                                 <td>
@@ -185,31 +205,37 @@ function getOrders()
                                         firebase.firestore().collection("orders").doc(orders[i].id).update({orders:orders[i].data.orders}).then(
                                             function(){
                                                 
-                                                var datareplay = {
+                                                var datareplay =
+                                                 {
                                                     replay:"Hi your order "+doc.data().nameProduct+" will Arrival in week we contact you on your phone after week to give you your order",
                                                     idSender:orders[i].data.orders[k].product.data.idUser,
                                                     date:new Date(),
                                                     namereplay:"RoStore",
                                                     subject:"Arrival Order Message",
                                                     read:false,
-                                                }
-                                                var datareplayAdmin = {
-                                                    message:"Hi your order "+doc.data().nameProduct+" will Arrival in week we contact you on your phone after week to give you your order",
-                                                    idUser:orders[i].data.orders[k].product.data.idUser,
-                                                    date:new Date(),
-                                                    nameUser:"RoStore",
-                                                    subject:"Arrival Order Message",
-                                                    read:false,
-                                                }
-                                               
-                                                firebase.firestore().collection("NotificationsReply").add(datareplay).then(function(querySnapshot) {
-                                                    toastr.success("Done")
-                                                   
-                                                });
-                                                firebase.firestore().collection("Notifications").add(datareplayAdmin).then(function(querySnapshot) {
+                                                 }
+                                                 
+                                                // var datareplayAdmin = {
+                                                //     message:"Hi your order "+doc.data().nameProduct+" will Arrival in week we contact you on your phone after week to give you your order",
+                                                //     idUser:orders[i].data.orders[k].product.data.idUser,
+                                                //     date:new Date(),
+                                                //     nameUser:"RoStore",
+                                                //     subject:"Arrival Order Message",
+                                                //     read:false,
+                                                // }
+                                              
+                                                    firebase.firestore().collection("NotificationsReply").add(datareplay).then(function(querySnapshot) {
+                                                        toastr.success("Done")
                                                     
-                                                   
-                                                });
+                                                    });
+                                                
+                                              
+                                                // {
+                                                //     firebase.firestore().collection("Notifications").add(datareplayAdmin).then(function(querySnapshot) {
+                                                        
+                                                    
+                                                //     });
+                                                // }
                                             }
                                         )
 
@@ -225,18 +251,8 @@ function getOrders()
                        
                                                 
                      })
-                     
-                     if (ordershow.length == 0) {
-                         $("#tableOrder").hide
-                         $("#orders-tab").text("No Order Yet")
-                         
-                     }
-                    //  console.log(orderRequstshow.length)
-                     if (orderRequstshow.length == 0) {
-                        $("#tableOrder").hide
-                        $("#tableRequstOrder").text("No Requst Order Yet")
-                        
-                    }
+                    
+               
                      
                     });
                  
@@ -254,6 +270,34 @@ function getOrders()
 
         
     })
+    setTimeout(() => {
+        if (localStorage.getItem("showOrder") == "false") {
+            $("#userOrder").hide()
+            $("#noUserOrder").show()
+            
+        }
+       //  console.log(orderRequstshow.length)
+        if (localStorage.getItem("RequstshowOrder") == "false") {
+            
+            $("#companyOrder").hide()
+            $("#nocompanyOrder").show()
+           
+       }
+       if (localStorage.getItem("showOrder") == "true") {
+        // console.log("2")
+        $("#userOrder").show()
+        $("#noUserOrder").hide()
+        
+    }
+    //  console.log(orderRequstshow.length)
+    if (localStorage.getItem("RequstshowOrder") == "true") {
+        $("#nocompanyOrder").hide()
+        $("#companyOrder").show()
+       
+    }
+        
+    }, 500);
+
 
 }
 
