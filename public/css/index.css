@@ -78,7 +78,7 @@ right: 0;
 .navbar-toggler{
     border: 1px solid white;
 }
-.notifications:hover{
+.notifications:hover , .nav-link:hover{
     filter: drop-shadow(1px 3px 3px white)
 
 
