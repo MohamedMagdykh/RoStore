@@ -20,7 +20,7 @@ $(document).ready(function(){
     getOrders();  
 
     
-    // console.log(localStorage.getItem("checkGoToRequstOrder"))
+
 
 setTimeout(() => {
     if (localStorage.getItem("checkGoToRequstOrder")=="false") {
@@ -263,12 +263,7 @@ function getOrders()
                                                     });
                                                 
                                               
-                                                // {
-                                                //     firebase.firestore().collection("Notifications").add(datareplayAdmin).then(function(querySnapshot) {
-                                                        
-                                                    
-                                                //     });
-                                                // }
+                                         
                                             }
                                         )
 
@@ -304,7 +299,7 @@ function getOrders()
         
     })
     setTimeout(() => {
-       console.log(localStorage.getItem("showOrder")) 
+    //    console.log(localStorage.getItem("showOrder")) 
         if (localStorage.getItem("showOrder") == "false") {
             $("#userOrder").hide()
             $("#noUserOrder").show()
@@ -320,13 +315,13 @@ function getOrders()
            
        }
        if (localStorage.getItem("showOrder") == "true") {
-        // console.log("2")
+
         $("#userOrder").show()
         $("#noUserOrder").hide()
         localStorage.removeItem("showOrder")
         
     }
-    //  console.log(orderRequstshow.length)
+
     if (localStorage.getItem("RequstshowOrder") == "true") {
         $("#nocompanyOrder").hide()
         $("#companyOrder").show()

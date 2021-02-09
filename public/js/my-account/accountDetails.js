@@ -52,7 +52,6 @@ btnFristName.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span1.onclick = function() {
-    console.log()
   modalFristName.style.display = "none";
 }
 

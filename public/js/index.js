@@ -151,7 +151,7 @@ function getProducts(){
           var person = prompt("Inside cairo", "yes");
           if (person=="yes") {
                ShippingCost = 5
-               console.log("1")
+              //  console.log("1")
               
           }
           else{
@@ -167,11 +167,11 @@ function getProducts(){
               ShippingCost:ShippingCost,
               GrandTotal:GrandTotal
           }
-          console.log("2")
+          // console.log("2")
           localStorage.setItem("orders",JSON.stringify(order))
           setTimeout(() => {
               location.href = "checkout.html"
-              console.log("3")
+              // console.log("3")
             }, 500);
           }
           if(localStorage.getItem("checkLog")=="false")

@@ -574,7 +574,7 @@ $("#btnReview").on("click",function addReviewProduct(){
         rate = $("#star5").val()
 
     }
-    console.log(document.getElementById("reviewText").value)
+    // console.log(document.getElementById("reviewText").value)
     var review = {
         "rate": rate,
         "review":document.getElementById("reviewText").value,

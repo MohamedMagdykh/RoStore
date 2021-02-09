@@ -10,10 +10,8 @@ $(document).ready(function(){
 var dataOrderList = JSON.parse(localStorage.getItem("orders"))
 
 function ordersList(){
-    // console.log(dataOrderList)
     
     // var dataOrderList = JSON.parse(localStorage.getItem("orders"))
-    // console.log(dataOrderList)
    
        firebase.firestore().collection("products").onSnapshot(function(querySnapshot) {
            var dataForNotificationCompany = []
@@ -221,7 +219,7 @@ setTimeout(() => {
 
 for (let i = 0; i < dataForNotificationCompany.length; i++) {
 
-    console.log(dataForNotificationCompany[i])
+    // console.log(dataForNotificationCompany[i])
     if(dataForNotificationCompany[i].type == "company"){
     var datareplay = {
         replay:"Hi "+dataForNotificationCompany[i].name+" you have new orders for your product "+dataForNotificationCompany[i].productname+" go to requst order to complete process  ",
