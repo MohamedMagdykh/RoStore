@@ -124,7 +124,11 @@ function AddProduct(){
             "infoOwner":{
                 "phone":localStorage.getItem("phoneUser"),
                 "name":localStorage.getItem("nameUser"),
-                "mail":localStorage.getItem("mailUser")
+                "mail":localStorage.getItem("mailUser"),
+                "id":localStorage.getItem("mailUser"),
+                "type":localStorage.getItem("typeUser")
+
+
             }
     
         }

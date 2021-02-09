@@ -164,7 +164,7 @@ function orderUserMessage(){
       
         orderCompanyMessage();
         orderCompanyClientMessage();
-        if(localStorage.getItem("typeUser")=="admin")
+        if(localStorage.getItem("typeUser")=="admin") 
         {
             orderUserAdminMessage();
         }
@@ -193,6 +193,7 @@ function orderUserMessage(){
     var dataForNotificationCompany= JSON.parse(localStorage.getItem("dataForNotificationCompany"))
 
 for (let i = 0; i < dataForNotificationCompany.length; i++) {
+    if(dataForNotificationCompany[i].type == "admin"){
     var datareplay = {
         message:"Hi "+dataForNotificationCompany[i].name+" you have new orders for your product "+dataForNotificationCompany[i].productname+" go to requst order to complete process  ",
         idUser:dataForNotificationCompany[i].id,
@@ -207,18 +208,19 @@ for (let i = 0; i < dataForNotificationCompany.length; i++) {
         
     });
     
-}
+
 setTimeout(() => {
     location.href="my-account.html"
     localStorage.setItem("checkGoToRequstOrder","true")
-}, 1000);
-
-  
+}, 1500);
+}
+}
   }
   function orderCompanyClientMessage(){
     var dataForNotificationCompany= JSON.parse(localStorage.getItem("dataForNotificationCompany"))
 
 for (let i = 0; i < dataForNotificationCompany.length; i++) {
+    if(dataForNotificationCompany[i].type == "admin"){
     var datareplay = {
         replay:"Hi "+dataForNotificationCompany[i].name+" you have new orders for your product "+dataForNotificationCompany[i].productname+" go to requst order to complete process  ",
         idSender:dataForNotificationCompany[i].id,
@@ -232,11 +234,13 @@ for (let i = 0; i < dataForNotificationCompany.length; i++) {
         
     });
     
-}
+
 setTimeout(() => {
     location.href="my-account.html"
     localStorage.setItem("checkGoToRequstOrder","true")
 }, 2000);
+}
+}
 
   
   }
