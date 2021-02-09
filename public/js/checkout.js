@@ -26,7 +26,7 @@ function ordersList(){
 
                     var priceProdcuts = parseFloat(doc.data().price) * parseFloat(amount)
                     $(`<p id="productName">${amount} ${doc.data().nameProduct}<span id="productPrice">${priceProdcuts}</span></p>`).insertAfter(".Cart-Total")
-                    dataForNotificationCompany.push({id:doc.data().infoOwner.id,id:doc.data().infoOwner.type,name:doc.data().infoOwner.name,productname:doc.data().nameProduct,mail:doc.data().infoOwner.mail})
+                    dataForNotificationCompany.push({id:doc.data().infoOwner.id,type:doc.data().infoOwner.type,name:doc.data().infoOwner.name,productname:doc.data().nameProduct,mail:doc.data().infoOwner.mail})
 
 
 
