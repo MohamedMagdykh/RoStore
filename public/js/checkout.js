@@ -26,7 +26,7 @@ function ordersList(){
 
                     var priceProdcuts = parseFloat(doc.data().price) * parseFloat(amount)
                     $(`<p id="productName">${amount} ${doc.data().nameProduct}<span id="productPrice">${priceProdcuts}</span></p>`).insertAfter(".Cart-Total")
-                    dataForNotificationCompany.push({id:doc.data().infoOwner.id,name:doc.data().infoOwner.name,productname:doc.data().nameProduct,mail:doc.data().infoOwner.mail})
+                    dataForNotificationCompany.push({id:doc.data().infoOwner.id,id:doc.data().infoOwner.type,name:doc.data().infoOwner.name,productname:doc.data().nameProduct,mail:doc.data().infoOwner.mail})
 
 
 
@@ -220,6 +220,8 @@ setTimeout(() => {
     var dataForNotificationCompany= JSON.parse(localStorage.getItem("dataForNotificationCompany"))
 
 for (let i = 0; i < dataForNotificationCompany.length; i++) {
+
+    console.log(dataForNotificationCompany[i])
     if(dataForNotificationCompany[i].type == "company"){
     var datareplay = {
         replay:"Hi "+dataForNotificationCompany[i].name+" you have new orders for your product "+dataForNotificationCompany[i].productname+" go to requst order to complete process  ",
