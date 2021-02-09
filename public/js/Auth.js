@@ -139,6 +139,9 @@ function login(mail,password){
       setTimeout(() => {
         location.href = "my-account.html"
         localStorage.setItem("checkGoToRequstOrder",false)
+        localStorage.setItem("fromLogin",true)
+        
+
 
       }, 4000);
     }

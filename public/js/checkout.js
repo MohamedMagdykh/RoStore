@@ -236,7 +236,7 @@ for (let i = 0; i < dataForNotificationCompany.length; i++) {
 setTimeout(() => {
     location.href="my-account.html"
     localStorage.setItem("checkGoToRequstOrder","true")
-}, 1000);
+}, 2000);
 
   
   }

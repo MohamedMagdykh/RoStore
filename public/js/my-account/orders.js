@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    if(localStorage.getItem("fromLogin")=="true")
+    {
+        setTimeout(() => {
+            if (!localStorage.getItem('foo')) { 
+                localStorage.setItem('foo', 'no reload') 
+                location.reload() 
+              } else {
+                localStorage.removeItem('foo') 
+              }
+            
+        }, 2000);
+        localStorage.removeItem("fromLogin")
+    }
+  
     if (localStorage.getItem("typeUser")!="client") {
           
         $("#requstOrders-nav").show()  
@@ -17,8 +31,22 @@ setTimeout(() => {
     
     if (localStorage.getItem("checkGoToRequstOrder")=="true") {
         
-        localStorage.setItem("checkGoToRequstOrder",false)
+        
         $("#orders-nav").click()
+        getOrders();  
+        setTimeout(() => {
+            if (!localStorage.getItem('foo')) { 
+                localStorage.setItem('foo', 'no reload') 
+                location.reload() 
+              } else {
+                localStorage.removeItem('foo') 
+              }
+              setTimeout(() => {
+                localStorage.setItem("checkGoToRequstOrder",false)
+                  
+              }, 2000);
+            
+        }, 3000);
 
     }
     
@@ -135,6 +163,7 @@ function getOrders()
                                 
                                 var date = new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'numeric'}).format(time.setSeconds(orders[i].data.date.seconds))
                                 ordershow.push(doc.data())
+                                // console.log(ordershow)
                                 if(ordershow.length!=0)
                                 {
                                     // console.log("3")
@@ -275,9 +304,11 @@ function getOrders()
         
     })
     setTimeout(() => {
+       console.log(localStorage.getItem("showOrder")) 
         if (localStorage.getItem("showOrder") == "false") {
             $("#userOrder").hide()
             $("#noUserOrder").show()
+            localStorage.removeItem("showOrder")
             
         }
        //  console.log(orderRequstshow.length)
@@ -285,18 +316,21 @@ function getOrders()
             
             $("#companyOrder").hide()
             $("#nocompanyOrder").show()
+            localStorage.removeItem("RequstshowOrder")
            
        }
        if (localStorage.getItem("showOrder") == "true") {
         // console.log("2")
         $("#userOrder").show()
         $("#noUserOrder").hide()
+        localStorage.removeItem("showOrder")
         
     }
     //  console.log(orderRequstshow.length)
     if (localStorage.getItem("RequstshowOrder") == "true") {
         $("#nocompanyOrder").hide()
         $("#companyOrder").show()
+        localStorage.removeItem("RequstshowOrder")
        
     }
         

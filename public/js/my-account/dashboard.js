@@ -438,13 +438,13 @@ function getUsers(){
    `)
    $(".updateAccount").on("click",function(){
     if ($(this).attr("id")==ALLusersData[i].id) {
+        
 
         
-        firebase.firestore().collection("users").doc(ALLusersData[i].id).update({type:$(".updateAccount").val()}).then(
+        firebase.firestore().collection("users").doc(ALLusersData[i].id).update({type:$("#"+$(this).attr("id")).val()}).then(
             function(){
                 if ($(".updateAccount").val()=="company") {
                     var message = `Hi ${fristName} your Account change to client`
-                    // console.log("cl")
                 }
                 if ($(".updateAccount").val()=="client") {
                     var message = `Hi ${fristName} your Account change to company now you can add your products`

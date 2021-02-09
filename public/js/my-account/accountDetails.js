@@ -20,7 +20,7 @@ $(document).ready(function () {
   })
   getDataUser.then(res =>
     {
-      console.log(localStorage.getItem("checkGoToRequstOrder"))
+      // console.log(localStorage.getItem("checkGoToRequstOrder"))
       if(localStorage.getItem("checkGoToRequstOrder")!="true")
       {
       setTimeout(() =>

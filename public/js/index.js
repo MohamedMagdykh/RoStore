@@ -135,14 +135,55 @@ function getProducts(){
       
       for (let i = 0; i < 10; i++) {
         if( productsData[i].data.typeProduct==$("#filterCate").val()){
-            $(".center").append('<div class="mySlides" id="mySlides"><div style="padding-left: 2%;padding-right: 2%;" class="product-item"><div class="product-title"><a href="#">'+productsData[i].data.nameProduct+'</a><div class="ratting"></div></div><div class="product-image"><a href="product-detail.html"><img style="height: 420px;object-fit: contain;" src="'+productsData[i].data.photos[0]+'" alt="Product Image"></a><div class="product-action"><a id="'+productsData[i].id+'" class="addToCart"><i class="fa fa-cart-plus"></i></a><a id="'+productsData[i].id+'" class="addNewToWishList"><i class="fa fa-heart"></i></a> <a href="product-detail.html" class="goDetails" id="'+productsData[i].id+'"><i class="fa fa-info-circle" ></i></a></div></div><div class="product-price"><h3><span>$</span>'+productsData[i].data.price+'</h3>  <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a></div></div></div>')
+            $(".center").append('<div class="mySlides" id="mySlides"><div style="padding-left: 2%;padding-right: 2%;" class="product-item"><div class="product-title"><a href="#">'+productsData[i].data.nameProduct+'</a><div class="ratting"></div></div><div class="product-image"><a href="product-detail.html"><img style="height: 420px;object-fit: contain;" src="'+productsData[i].data.photos[0]+'" alt="Product Image"></a><div class="product-action"><a id="'+productsData[i].id+'" class="addToCart"><i class="fa fa-cart-plus"></i></a><a id="'+productsData[i].id+'" class="addNewToWishList"><i class="fa fa-heart"></i></a> <a href="product-detail.html" class="goDetails" id="'+productsData[i].id+'"><i class="fa fa-info-circle" ></i></a></div></div><div class="product-price"><h3><span>$</span>'+productsData[i].data.price+'</h3>  <a class="btn" id="'+productsData[i].id+'buy" ><i class="fa fa-shopping-cart"></i>Buy Now</a></div></div></div>')
 
         }
         if($("#filterCate").val()=='All'){
-            $(".center").append('<div class="mySlides" id="mySlides"><div style="padding-left: 2%;padding-right: 2%;" class="product-item"><div class="product-title"><a href="#">'+productsData[i].data.nameProduct+'</a><div class="ratting"></div></div><div class="product-image"><a href="product-detail.html"><img style="height: 420px;object-fit: contain;" src="'+productsData[i].data.photos[0]+'" alt="Product Image"></a><div class="product-action"><a id="'+productsData[i].id+'" class="addToCart"><i class="fa fa-cart-plus"></i></a><a id="'+productsData[i].id+'" class="addNewToWishList"><i class="fa fa-heart"></i></a> <a href="product-detail.html" class="goDetails" id="'+productsData[i].id+'"><i class="fa fa-info-circle" ></i></a></div></div><div class="product-price"><h3><span>$</span>'+productsData[i].data.price+'</h3>  <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a></div></div></div>')
+            $(".center").append('<div class="mySlides" id="mySlides"><div style="padding-left: 2%;padding-right: 2%;" class="product-item"><div class="product-title"><a href="#">'+productsData[i].data.nameProduct+'</a><div class="ratting"></div></div><div class="product-image"><a href="product-detail.html"><img style="height: 420px;object-fit: contain;" src="'+productsData[i].data.photos[0]+'" alt="Product Image"></a><div class="product-action"><a id="'+productsData[i].id+'" class="addToCart"><i class="fa fa-cart-plus"></i></a><a id="'+productsData[i].id+'" class="addNewToWishList"><i class="fa fa-heart"></i></a> <a href="product-detail.html" class="goDetails" id="'+productsData[i].id+'"><i class="fa fa-info-circle" ></i></a></div></div><div class="product-price"><h3><span>$</span>'+productsData[i].data.price+'</h3>  <a class="btn" id="'+productsData[i].id+'buy" ><i class="fa fa-shopping-cart"></i>Buy Now</a></div></div></div>')
 
 
         }
+        $("#"+productsData[i].id+"buy").on("click",function(){
+          if(localStorage.getItem("checkLog")!="false"){
+  
+          var ShippingCost
+  
+          var person = prompt("Inside cairo", "yes");
+          if (person=="yes") {
+               ShippingCost = 5
+               console.log("1")
+              
+          }
+          else{
+               ShippingCost = 10
+  
+          }
+          var GrandTotal = ShippingCost + parseFloat(productsData[i].data.price)
+        
+          // console.log(productsData[i].data)
+          order = {
+              products:[{amount:"1",product:{data:{idProduct:productsData[i].id,idUser:localStorage.getItem("idUser"),date:new Date()}}}],
+              supTotal:productsData[i].data.price,
+              ShippingCost:ShippingCost,
+              GrandTotal:GrandTotal
+          }
+          console.log("2")
+          localStorage.setItem("orders",JSON.stringify(order))
+          setTimeout(() => {
+              location.href = "checkout.html"
+              console.log("3")
+            }, 500);
+          }
+          if(localStorage.getItem("checkLog")=="false")
+          {
+              location.href = "login.html"
+  
+          }
+  
+      }),err=>
+      {
+        this.toastr.errorToastr(err.message)
+      }
         
         
 
@@ -152,6 +193,7 @@ function getProducts(){
         $(".addNewToWishList").hide()
       
       }
+  
       $(".goDetails").on("click",function productDetails(){
         location.href="product-detail.html"
         localStorage.setItem("id",$(this).attr('id')) 

@@ -193,7 +193,10 @@ $(document).ready(function(){
 
             }
             $("#"+productsData[i].id+"buy").on("click",function(){
+                if(localStorage.getItem("checkLog")!="false"){
+
                 var ShippingCost
+
                 var person = prompt("Inside cairo", "yes");
                 if (person=="yes") {
                      ShippingCost = 5
@@ -216,6 +219,12 @@ $(document).ready(function(){
                 setTimeout(() => {
                     location.href = "checkout.html"
                   }, 500);
+                }
+                if(localStorage.getItem("checkLog")=="false")
+                {
+                    location.href = "login.html"
+
+                }
     
             }),err=>
             {
